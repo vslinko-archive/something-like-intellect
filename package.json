@@ -1,0 +1,9 @@
+{
+    "name": "something-like-intellect",
+    "version": "0.1.0",
+    "main": "src/index",
+    "dependencies": {
+        "async": "^0.6",
+        "mystem-stream": "^0.1"
+    }
+}

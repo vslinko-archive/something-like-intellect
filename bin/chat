@@ -1,0 +1,15 @@
+#!/usr/bin/env coffee
+
+repl = require "repl"
+sli = require ".."
+
+
+messageProcessor = sli()
+messageProcessor.run()
+
+repl.start
+  prompt: "something-like-intellect> "
+  eval: (cmd, context, filename, callback) ->
+    messageProcessor.process cmd.slice(1, -2), process.env.USER, "shell", callback
+.on "exit", ->
+  messageProcessor.close()

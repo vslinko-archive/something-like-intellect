@@ -5,12 +5,13 @@ Message = require "./Message"
 
 module.exports =
 class MessageProcessor
-  constructor: (@messageParser) ->
+  constructor: (@messageParser, @responderMather) ->
     @knownChats = {}
     @knownUsers = {}
 
   run: ->
     @messageParser.run()
+    @responderMather.run()
 
   process: (messageBody, userId, chatId, callback) ->
     unless @knownChats[chatId]
@@ -30,7 +31,13 @@ class MessageProcessor
       chat.addMessage message
       chat.registerUser user
 
-      callback null, message
+      responder = @responderMather.match message
+
+      if responder
+        responder.process message, callback
+      else
+        callback null, null
 
   close: ->
+    @responderMather.close()
     @messageParser.close()

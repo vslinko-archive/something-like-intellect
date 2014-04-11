@@ -1,0 +1,20 @@
+hello:
+  words: hi hello
+  stems: привет приветик здавствовать здаров хай хеллоу хелло
+play:
+  words: play
+  stems: играть включать врубать заряжать
+music:
+  words: музло
+  stems: музыка
+song:
+  words: song
+  stems: песня композиция трек
+my_name:
+  words: v vasya
+  stems: вася василий васька василька васян
+ping:
+  stems: ау тут работать
+stop:
+  words: стоп хватит
+  stems: выключать затыкаться

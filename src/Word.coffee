@@ -1,3 +1,3 @@
 module.exports =
 class Word
-  constructor: (@word, @stem) ->
+  constructor: (@word, @stem, @context) ->

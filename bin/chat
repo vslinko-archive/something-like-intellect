@@ -10,6 +10,12 @@ messageProcessor.run()
 repl.start
   prompt: "something-like-intellect> "
   eval: (cmd, context, filename, callback) ->
-    messageProcessor.process cmd.slice(1, -2), process.env.USER, "shell", callback
+    messageProcessor.process cmd.slice(1, -2), process.env.USER, "shell", (err, response) ->
+      if err
+        callback err
+      else if response
+        callback null, response.body
+      else
+        callback null, null
 .on "exit", ->
   messageProcessor.close()

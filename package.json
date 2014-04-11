@@ -4,6 +4,7 @@
     "main": "src/index",
     "dependencies": {
         "async": "^0.6",
-        "mystem-stream": "^0.1"
+        "mystem-stream": "^0.1",
+        "js-yaml": "^3.0"
     }
 }
